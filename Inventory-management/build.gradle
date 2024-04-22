@@ -1,0 +1,57 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.2.4'
+    id 'io.spring.dependency-management' version '1.1.4'
+}
+
+group = 'vn.mtpd.hd'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    sourceCompatibility = '17'
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+//dependencies {
+//    implementation 'org.springframework.boot:spring-boot-starter-web'
+//    compileOnly 'org.projectlombok:lombok'
+//    annotationProcessor 'org.projectlombok:lombok'
+//    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+//    implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.6.6'
+//    // config kafka
+//    // https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients
+//    //implementation group: 'org.apache.kafka', name: 'kafka-clients', version: '3.5.0'
+//    // https://mvnrepository.com/artifact/org.springframework.kafka/spring-kafka
+//    //implementation group: 'org.springframework.kafka', name: 'spring-kafka', version: '2.8.0'
+//    implementation 'org.apache.avro:avro:1.10.2'
+//    // https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa
+//    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+//    // https://mvnrepository.com/artifact/mysql/mysql-connector-java
+//    implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.32'
+//    implementation 'org.springframework.boot:spring-boot:1.4.3.RELEASE'
+//    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-jdbc
+//    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-jdbc', version: '3.2.5'
+//
+//}
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+    runtimeOnly 'com.microsoft.sqlserver:mssql-jdbc:9.4.1.jre11'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}

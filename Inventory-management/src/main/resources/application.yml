@@ -1,0 +1,30 @@
+#Default server port
+server:
+  port: 13245
+
+#Config Database
+spring:
+  # Config Database
+  profiles:
+    active: ${ACTIVE_PROFILE:local}
+  # datasource-1
+  datasource:
+    jdbcUrl: jdbc:sqlserver://DESKTOP-3FD1V4G:1433;database=Inventory_Management_DEV
+    username: sa
+    password: 123456
+    jpa:
+      properties:
+        hibernate:
+          ddl-auto: none
+          dialect: org.hibernate.dialect.SQLServerDialect
+#config keycloak
+#keycloak:
+#  realm: myrealm
+#  auth-server-url: http://host.docker.internal:8080
+#  ssl-required: external
+#  resource: mtpdclient
+#  credentials:
+#    secret: EqpsO75DluwJWQmf8FutwFIXidkQAWZb
+#  use-resource-role-mappings: true
+#  bearer-only: true
+#  cors: true
